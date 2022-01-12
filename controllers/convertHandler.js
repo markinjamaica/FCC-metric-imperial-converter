@@ -1,4 +1,61 @@
 function ConvertHandler() {
+    const units = {
+        mi: {
+            name: 'miles',
+            abrv: 'mi',
+            opp: 'km',
+            convert: {
+                operation: 'multiply',
+                amount: 1.60934,
+            },
+        },
+        km: {
+            name: 'kilometers',
+            abrv: 'km',
+            opp: 'mi',
+            convert: {
+                operation: 'divide',
+                amount: 1.60934,
+            },
+        },
+        gal: {
+            name: 'gallons',
+            abrv: 'gal',
+            opp: 'l',
+            convert: {
+                operation: 'multiply',
+                amount: 3.78541,
+            },
+        },
+        l: {
+            name: 'liters',
+            abrv: 'l',
+            opp: 'gal',
+            convert: {
+                operation: 'divide',
+                amount: 3.78541,
+            },
+        },
+        lbs: {
+            name: 'pounds',
+            abrv: 'lbs',
+            opp: 'kg',
+            convert: {
+                operation: 'multiply',
+                amount: 0.453592,
+            },
+        },
+        kg: {
+            name: 'kilograms',
+            abrv: 'kg',
+            opp: 'lbs',
+            convert: {
+                operation: 'divide',
+                amount: 0.453592,
+            },
+        },
+    };
+
     this.getNum = function (input) {
         const string = input.toString();
         const numRegex = /^\d+(\.\d+)?|^\.\d+/;
@@ -12,53 +69,36 @@ function ConvertHandler() {
 
     this.getUnit = function (input) {
         const string = input.toString();
-        const gal = string.match(/gal/i);
-        const l = string.match(/l/i);
-        const lbs = string.match(/lbs/i);
-        const kg = string.match(/kg/i);
-        const mi = string.match(/mi/i);
-        const km = string.match(/km/i);
-
-        return gal
-            ? 'gal'
-            : l
-            ? 'l'
-            : lbs
-            ? 'lbs'
-            : kg
-            ? 'kg'
-            : mi
-            ? 'mi'
-            : km
-            ? 'km'
-            : false;
+        for (const property in units) {
+            let regex = new RegExp(units[property].abrv, 'i');
+            if (string.match(regex)) {
+                return units[property].abrv;
+            }
+        }
+        return false;
     };
 
     this.getReturnUnit = function (initUnit) {
-        let result;
-
-        return result;
+        return units[initUnit].opp;
     };
 
     this.spellOutUnit = function (unit) {
-        let result;
-
-        return result;
+        return units[unit].name;
     };
 
     this.convert = function (initNum, initUnit) {
-        const galToL = 3.78541;
-        const lbsToKg = 0.453592;
-        const miToKm = 1.60934;
-        let result;
+        const operator = units[initUnit].convert.operation;
+        const amount = units[initUnit].convert.amount;
 
-        return result;
+        if (operator === 'multiply') {
+            return initNum * amount;
+        } else {
+            return initNum / amount;
+        }
     };
 
     this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-        let result;
-
-        return result;
+        return `${initNum} ${units[initUnit].name} converts to ${returnNum} ${units[returnUnit].name}`;
     };
 }
 
