@@ -58,11 +58,19 @@ function ConvertHandler() {
 
     this.getNum = function (input) {
         const string = input.toString();
-        const numRegex = /^\d+(\.\d+)?|^\.\d+/;
-        let match = string.match(numRegex);
+        const numRegex = /^\d+(\.\d+)?(\/\d+(\.\d+)?)?/;
+        const fractionRegex = /\d+(\.\d+)?\/\d+(\.\d+)?/;
+        const numberMatch = string.match(numRegex);
+        const fraction = string.match(fractionRegex);
 
-        if (match) {
-            return parseFloat(match[0]);
+        if (numberMatch) {
+            if (fraction) {
+                let [a, b] = numberMatch[0].split('/');
+                a = parseFloat(a);
+                b = parseFloat(b);
+                return a / b;
+            }
+            return parseFloat(numberMatch[0]);
         }
         return false;
     };
