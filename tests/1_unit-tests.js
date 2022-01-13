@@ -21,7 +21,13 @@ suite('Unit Tests', function () {
     });
 
     // 4. convertHandler should correctly read a fractional input with a decimal
-
+    test('fractional number input with decimal', () => {
+        assert.equal(
+            convertHandler.getNum('4.5/5mi'),
+            0.9,
+            'read fraction w/ decimal'
+        );
+    });
     // 5. convertHandler should correctly return an error on a double-fraction
 
     // 6. convertHandler should correctly default to a numerical input of 1 when no numerical input is provided
