@@ -7,15 +7,18 @@ let convertHandler = new ConvertHandler();
 suite('Unit Tests', function () {
     // 1. convertHandler should correctly read a whole number input
     test('whole number input', () => {
-        assert.equal(convertHandler.getNum('6mi'), 6, 'get number');
+        assert.equal(convertHandler.getNum('6mi'), 6, 'read integer');
     });
 
     // 2. convertHandler should correctly read a decimal number input
     test('decimal number input', () => {
-        assert.equal(convertHandler.getNum('.43mi'), 0.43, 'get decimal');
+        assert.equal(convertHandler.getNum('0.43mi'), 0.43, 'read decimal');
     });
 
     // 3. convertHandler should correctly read a fractional input
+    test('fractional number input', () => {
+        assert.equal(convertHandler.getNum('3/4mi'), 0.75, 'read fraction');
+    });
 
     // 4. convertHandler should correctly read a fractional input with a decimal
 
