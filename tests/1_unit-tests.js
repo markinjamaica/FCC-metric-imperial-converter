@@ -43,7 +43,24 @@ suite('Unit Tests', function () {
     });
 
     // 7. convertHandler should correctly read each valid input unit
-
+    test('miles input', () => {
+        assert.equal(convertHandler.getUnit('4mi'), 'mi', 'read miles');
+    });
+    test('kilometers input', () => {
+        assert.equal(convertHandler.getUnit('4km'), 'km', 'read kilometers');
+    });
+    test('gallons input', () => {
+        assert.equal(convertHandler.getUnit('4gal'), 'gal', 'read gallons');
+    });
+    test('liters input', () => {
+        assert.equal(convertHandler.getUnit('4l'), 'l', 'read liters');
+    });
+    test('pounds input', () => {
+        assert.equal(convertHandler.getUnit('4lbs'), 'lbs', 'read pounds');
+    });
+    test('kilogram input', () => {
+        assert.equal(convertHandler.getUnit('4kg'), 'kg', 'read kilograms');
+    });
     // 8. convertHandler should correctly return an error for an invalid input unit
 
     // 9. convertHandler should return the correct return unit for each valid input unit
