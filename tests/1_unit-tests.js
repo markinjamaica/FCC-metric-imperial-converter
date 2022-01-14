@@ -72,7 +72,24 @@ suite('Unit Tests', function () {
     });
 
     // 9. convertHandler should return the correct return unit for each valid input unit
-
+    test('return km from mi', () => {
+        assert.equal(convertHandler.getReturnUnit('mi'), 'km');
+    });
+    test('return mi from km', () => {
+        assert.equal(convertHandler.getReturnUnit('km'), 'mi');
+    });
+    test('return gal from l', () => {
+        assert.equal(convertHandler.getReturnUnit('l'), 'gal');
+    });
+    test('return l from gal', () => {
+        assert.equal(convertHandler.getReturnUnit('gal'), 'l');
+    });
+    test('return lbs from kg', () => {
+        assert.equal(convertHandler.getReturnUnit('kg'), 'lbs');
+    });
+    test('return kg from lbs', () => {
+        assert.equal(convertHandler.getReturnUnit('lbs'), 'kg');
+    });
     // 10. convertHandler should correctly return the spelled-out string unit for each valid input unit
 
     // 11. convertHandler should correctly convert gal to L
