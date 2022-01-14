@@ -8,6 +8,9 @@ module.exports = function (app) {
 
     app.route('/api/convert').get((req, res) => {
         const initNum = convertHandler.getNum(req.query.input);
+        if (initNum === 'invalid number') {
+            return res.send('invalid number');
+        }
         const initUnit = convertHandler.getUnit(req.query.input);
         const returnNum = convertHandler.convert(initNum, initUnit);
         const returnUnit = convertHandler.getReturnUnit(initUnit);
