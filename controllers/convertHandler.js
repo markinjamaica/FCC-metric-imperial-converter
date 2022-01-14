@@ -78,7 +78,7 @@ function ConvertHandler() {
             }
             return parseFloat(numberMatch[0]);
         }
-        return false;
+        return 1;
     };
 
     this.getUnit = function (input) {
