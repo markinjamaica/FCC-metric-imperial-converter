@@ -29,6 +29,13 @@ suite('Unit Tests', function () {
         );
     });
     // 5. convertHandler should correctly return an error on a double-fraction
+    test('return error on a double-fraction', () => {
+        assert.equal(
+            convertHandler.getNum('4/3/5'),
+            'invalid number',
+            'read double fraction'
+        );
+    });
 
     // 6. convertHandler should correctly default to a numerical input of 1 when no numerical input is provided
 
