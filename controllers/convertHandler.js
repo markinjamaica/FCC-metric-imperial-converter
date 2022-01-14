@@ -27,15 +27,6 @@ function ConvertHandler() {
                 amount: 3.78541,
             },
         },
-        l: {
-            name: 'liters',
-            abrv: 'l',
-            opp: 'gal',
-            convert: {
-                operation: 'divide',
-                amount: 3.78541,
-            },
-        },
         lbs: {
             name: 'pounds',
             abrv: 'lbs',
@@ -43,6 +34,15 @@ function ConvertHandler() {
             convert: {
                 operation: 'multiply',
                 amount: 0.453592,
+            },
+        },
+        l: {
+            name: 'liters',
+            abrv: 'l',
+            opp: 'gal',
+            convert: {
+                operation: 'divide',
+                amount: 3.78541,
             },
         },
         kg: {
