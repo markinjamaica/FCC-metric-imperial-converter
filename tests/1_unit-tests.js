@@ -90,8 +90,26 @@ suite('Unit Tests', function () {
     test('return kg from lbs', () => {
         assert.equal(convertHandler.getReturnUnit('lbs'), 'kg');
     });
-    // 10. convertHandler should correctly return the spelled-out string unit for each valid input unit
 
+    // 10. convertHandler should correctly return the spelled-out string unit for each valid input unit
+    test('mi to miles', () => {
+        assert.equal(convertHandler.spellOutUnit('mi'), 'miles');
+    });
+    test('km to kilometers', () => {
+        assert.equal(convertHandler.spellOutUnit('km'), 'kilometers');
+    });
+    test('gal to gallons', () => {
+        assert.equal(convertHandler.spellOutUnit('gal'), 'gallons');
+    });
+    test('l to liters', () => {
+        assert.equal(convertHandler.spellOutUnit('l'), 'liters');
+    });
+    test('lbs to pounds', () => {
+        assert.equal(convertHandler.spellOutUnit('lbs'), 'pounds');
+    });
+    test('kg to kilograms', () => {
+        assert.equal(convertHandler.spellOutUnit('kg'), 'kilograms');
+    });
     // 11. convertHandler should correctly convert gal to L
 
     // 12. convertHandler should correctly convert L to gal
