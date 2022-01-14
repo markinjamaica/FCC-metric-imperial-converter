@@ -58,13 +58,19 @@ function ConvertHandler() {
 
     this.getNum = function (input) {
         const string = input.toString();
-        const numRegex = /^\d+(\.\d+)?(\/\d+(\.\d+)?)?/;
-        const fractionRegex = /\d+(\.\d+)?\/\d+(\.\d+)?/;
+
+        // TODO: check for invalid # input like 3/2/3 to return error
+        // TODO: if no number supplied, default to 1
+        const numRegex = /^\d+(\.\d+)?(\/\d+(\.\d+)?)?/i;
         const numberMatch = string.match(numRegex);
-        const fraction = string.match(fractionRegex);
 
         if (numberMatch) {
-            if (fraction) {
+            // Check for fractions
+            if (numberMatch[0].includes('/')) {
+                // Check for double divisor
+                if (string.split('/').length > 2) {
+                    return 'invalid number';
+                }
                 let [a, b] = numberMatch[0].split('/');
                 a = parseFloat(a);
                 b = parseFloat(b);
