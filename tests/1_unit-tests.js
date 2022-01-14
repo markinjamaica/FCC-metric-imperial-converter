@@ -29,15 +29,18 @@ suite('Unit Tests', function () {
         );
     });
     // 5. convertHandler should correctly return an error on a double-fraction
-    test('return error on a double-fraction', () => {
+    test('double-fraction input', () => {
         assert.equal(
-            convertHandler.getNum('4/3/5'),
+            convertHandler.getNum('4/3/5mi'),
             'invalid number',
             'read double fraction'
         );
     });
 
     // 6. convertHandler should correctly default to a numerical input of 1 when no numerical input is provided
+    test('no numerical input', () => {
+        assert.equal(convertHandler.getNum('mi'), 1, 'read empty number');
+    });
 
     // 7. convertHandler should correctly read each valid input unit
 
