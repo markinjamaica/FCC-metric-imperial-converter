@@ -61,7 +61,15 @@ suite('Unit Tests', function () {
     test('kilogram input', () => {
         assert.equal(convertHandler.getUnit('4kg'), 'kg', 'read kilograms');
     });
+
     // 8. convertHandler should correctly return an error for an invalid input unit
+    test('invalid input unit', () => {
+        assert.equal(
+            convertHandler.getUnit('4w'),
+            'invalid unit',
+            'read invalid unit'
+        );
+    });
 
     // 9. convertHandler should return the correct return unit for each valid input unit
 
