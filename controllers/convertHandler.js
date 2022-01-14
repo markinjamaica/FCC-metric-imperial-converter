@@ -89,7 +89,7 @@ function ConvertHandler() {
                 return units[property].abrv;
             }
         }
-        return false;
+        return 'invalid unit';
     };
 
     this.getReturnUnit = function (initUnit) {
