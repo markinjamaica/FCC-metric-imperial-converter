@@ -59,8 +59,6 @@ function ConvertHandler() {
     this.getNum = function (input) {
         const string = input.toString();
 
-        // TODO: check for invalid # input like 3/2/3 to return error
-        // TODO: if no number supplied, default to 1
         const numRegex = /^\d+(\.\d+)?(\/\d+(\.\d+)?)?/i;
         const numberMatch = string.match(numRegex);
 
