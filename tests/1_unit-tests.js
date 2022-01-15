@@ -115,7 +115,11 @@ suite('Unit Tests', function () {
     test('convert gal to l', () => {
         assert.equal(convertHandler.convert(3, 'gal'), 11.35623);
     });
+
     // 12. convertHandler should correctly convert L to gal
+    test('convert l to gal', () => {
+        assert.equal(convertHandler.convert(3, 'l'), 0.79252);
+    });
 
     // 13. convertHandler should correctly convert mi to km
 
