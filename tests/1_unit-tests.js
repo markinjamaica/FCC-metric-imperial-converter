@@ -132,6 +132,9 @@ suite('Unit Tests', function () {
     });
 
     // 15. convertHandler should correctly convert lbs to kg
+    test('convert lbs to kg', () => {
+        assert.equal(convertHandler.convert(3, 'lbs'), 1.36078);
+    });
 
     // 16. convertHandler should correctly convert kg to lbs
 });
