@@ -110,8 +110,11 @@ suite('Unit Tests', function () {
     test('kg to kilograms', () => {
         assert.equal(convertHandler.spellOutUnit('kg'), 'kilograms');
     });
-    // 11. convertHandler should correctly convert gal to L
 
+    // 11. convertHandler should correctly convert gal to L
+    test('convert gal to l', () => {
+        assert.equal(convertHandler.convert(3, 'gal'), 11.35623);
+    });
     // 12. convertHandler should correctly convert L to gal
 
     // 13. convertHandler should correctly convert mi to km
