@@ -103,9 +103,9 @@ function ConvertHandler() {
         const amount = units[initUnit].convert.amount;
 
         if (operator === 'multiply') {
-            return initNum * amount;
+            return parseInt(initNum * amount * 100000) / 100000;
         } else {
-            return initNum / amount;
+            return parseInt((initNum / amount) * 100000) / 100000;
         }
     };
 
