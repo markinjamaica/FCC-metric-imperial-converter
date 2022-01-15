@@ -122,6 +122,9 @@ suite('Unit Tests', function () {
     });
 
     // 13. convertHandler should correctly convert mi to km
+    test('convert mi to km', () => {
+        assert.equal(convertHandler.convert(3, 'mi'), 4.82802);
+    });
 
     // 14. convertHandler should correctly convert km to mi
 
