@@ -21,7 +21,7 @@ function ConvertHandler() {
         gal: {
             name: 'gallons',
             abrv: 'gal',
-            opp: 'l',
+            opp: 'L',
             convert: {
                 operation: 'multiply',
                 amount: 3.78541,
@@ -36,9 +36,9 @@ function ConvertHandler() {
                 amount: 0.453592,
             },
         },
-        l: {
+        L: {
             name: 'liters',
-            abrv: 'l',
+            abrv: 'L',
             opp: 'gal',
             convert: {
                 operation: 'divide',
