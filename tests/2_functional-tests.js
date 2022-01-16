@@ -9,7 +9,7 @@ suite('Functional Tests', function () {
     // 1. convert a valid input such as 10L: GET request to /api/convert
     test('convert a valid input', (done) => {
         chai.request(server)
-            .get('/api/convert?input=10l')
+            .get('/api/convert?input=10L')
             .end((err, res) => {
                 assert.equal(
                     res.text,
@@ -21,7 +21,15 @@ suite('Functional Tests', function () {
     });
 
     // 2. convert an invalid input such as 32g: GET request to /api/convert
-    // test('convert an invalid input', done);
+    test('convert an invalid input unit', (done) => {
+        chai.request(server)
+            .get('/api/convert?input=32g')
+            .end((err, res) => {
+                assert.equal(res.status, 200);
+                assert.equal(res.text, 'invalid unit');
+                done();
+            });
+    });
 
     // 3. convert an invalid number such as 3/7.2/4kg: GET request to /api/convert
     // 4. convert an invalid number AND unit such as 3/7.2/4kilomegagram: GET request to /api/convert
