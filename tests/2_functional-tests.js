@@ -13,7 +13,7 @@ suite('Functional Tests', function () {
             .end((err, res) => {
                 assert.equal(
                     res.text,
-                    '{"initNum":10,"initUnit":"l","returnNum":2.64172,"returnUnit":"gal","string":"10 liters converts to 2.64172 gallons"}'
+                    '{"initNum":10,"initUnit":"L","returnNum":2.64172,"returnUnit":"gal","string":"10 liters converts to 2.64172 gallons"}'
                 );
                 assert.equal(res.status, 200);
                 done();

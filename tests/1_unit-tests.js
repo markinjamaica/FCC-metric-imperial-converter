@@ -53,7 +53,7 @@ suite('Unit Tests', function () {
         assert.equal(convertHandler.getUnit('4gal'), 'gal', 'read gallons');
     });
     test('liters input', () => {
-        assert.equal(convertHandler.getUnit('4l'), 'l', 'read liters');
+        assert.equal(convertHandler.getUnit('4l'), 'L', 'read liters');
     });
     test('pounds input', () => {
         assert.equal(convertHandler.getUnit('4lbs'), 'lbs', 'read pounds');
@@ -78,11 +78,11 @@ suite('Unit Tests', function () {
     test('return mi from km', () => {
         assert.equal(convertHandler.getReturnUnit('km'), 'mi');
     });
-    test('return gal from l', () => {
-        assert.equal(convertHandler.getReturnUnit('l'), 'gal');
+    test('return gal from L', () => {
+        assert.equal(convertHandler.getReturnUnit('L'), 'gal');
     });
-    test('return l from gal', () => {
-        assert.equal(convertHandler.getReturnUnit('gal'), 'l');
+    test('return L from gal', () => {
+        assert.equal(convertHandler.getReturnUnit('gal'), 'L');
     });
     test('return lbs from kg', () => {
         assert.equal(convertHandler.getReturnUnit('kg'), 'lbs');
@@ -101,8 +101,8 @@ suite('Unit Tests', function () {
     test('gal to gallons', () => {
         assert.equal(convertHandler.spellOutUnit('gal'), 'gallons');
     });
-    test('l to liters', () => {
-        assert.equal(convertHandler.spellOutUnit('l'), 'liters');
+    test('L to liters', () => {
+        assert.equal(convertHandler.spellOutUnit('L'), 'liters');
     });
     test('lbs to pounds', () => {
         assert.equal(convertHandler.spellOutUnit('lbs'), 'pounds');
@@ -112,13 +112,13 @@ suite('Unit Tests', function () {
     });
 
     // 11. convertHandler should correctly convert gal to L
-    test('convert gal to l', () => {
+    test('convert gal to L', () => {
         assert.equal(convertHandler.convert(3, 'gal'), 11.35623);
     });
 
     // 12. convertHandler should correctly convert L to gal
-    test('convert l to gal', () => {
-        assert.equal(convertHandler.convert(3, 'l'), 0.79252);
+    test('convert L to gal', () => {
+        assert.equal(convertHandler.convert(3, 'L'), 0.79252);
     });
 
     // 13. convertHandler should correctly convert mi to km
