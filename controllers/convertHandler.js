@@ -82,6 +82,10 @@ function ConvertHandler() {
         const string = input.toString();
         const unit = string.match(/[a-z]+/i);
 
+        if (!unit) {
+            return 'invalid unit';
+        }
+
         for (const property in units) {
             const re = units[property].abrv;
             let regex = new RegExp(`\^${re}\$`, 'i');
