@@ -55,11 +55,10 @@ function ConvertHandler() {
             },
         },
     };
+    const numRegex = /^\d+(\.\d+)?(\/\d+(\.\d+)?)?/i;
 
     this.getNum = function (input) {
         const string = input.toString();
-
-        const numRegex = /^\d+(\.\d+)?(\/\d+(\.\d+)?)?/i;
         const numberMatch = string.match(numRegex);
 
         if (numberMatch) {
@@ -81,9 +80,13 @@ function ConvertHandler() {
 
     this.getUnit = function (input) {
         const string = input.toString();
+        const number = string.match(numRegex);
+        const unit = string.replace(number[0], '');
+
         for (const property in units) {
-            let regex = new RegExp(units[property].abrv, 'i');
-            if (string.match(regex)) {
+            const re = units[property].abrv;
+            let regex = new RegExp(`\^${re}\$`, 'i');
+            if (unit.match(regex)) {
                 return units[property].abrv;
             }
         }
