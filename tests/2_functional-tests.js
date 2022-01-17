@@ -43,5 +43,15 @@ suite('Functional Tests', function () {
     });
 
     // 4. convert an invalid number AND unit such as 3/7.2/4kilomegagram: GET request to /api/convert
+    test('convert an invalid number and unit', (done) => {
+        chai.request(server)
+            .get('/api/convert?input=3/7.2/4kilomegagram')
+            .end((err, res) => {
+                assert.equal(res.status, 200);
+                assert.equal(res.text, 'invalid number and unit');
+                done();
+            });
+    });
+
     // 5. convert with no number such as kg: GET request to /api/convert
 });
