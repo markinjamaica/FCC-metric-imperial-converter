@@ -55,9 +55,9 @@ function ConvertHandler() {
             },
         },
     };
-    const numRegex = /^\d+(\.\d+)?(\/\d+(\.\d+)?)?/i;
 
     this.getNum = function (input) {
+        const numRegex = /^\d+(\.\d+)?(\/\d+(\.\d+)?)?/i;
         const string = input.toString();
         const numberMatch = string.match(numRegex);
 
@@ -80,13 +80,13 @@ function ConvertHandler() {
 
     this.getUnit = function (input) {
         const string = input.toString();
-        const number = string.match(numRegex);
-        const unit = string.replace(number[0], '');
+        const unit = string.match(/[a-z]+/i);
+        console.log(unit);
 
         for (const property in units) {
             const re = units[property].abrv;
             let regex = new RegExp(`\^${re}\$`, 'i');
-            if (unit.match(regex)) {
+            if (unit[0].match(regex)) {
                 return units[property].abrv;
             }
         }
