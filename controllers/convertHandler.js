@@ -81,7 +81,6 @@ function ConvertHandler() {
     this.getUnit = function (input) {
         const string = input.toString();
         const unit = string.match(/[a-z]+/i);
-        console.log(unit);
 
         for (const property in units) {
             const re = units[property].abrv;
