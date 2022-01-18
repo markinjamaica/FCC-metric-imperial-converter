@@ -62,12 +62,11 @@ function ConvertHandler() {
         const numberMatch = string.match(numRegex);
 
         if (numberMatch) {
-            // Check for fractions
-            if (numberMatch[0].includes('/')) {
-                // Check for double divisor
-                if (string.split('/').length > 2) {
-                    return 'invalid number';
-                }
+            // Check for double divisor
+            if (string.split('/').length > 2) {
+                return 'invalid number';
+            }
+            if (numberMatch[0].match('/')) {
                 let [a, b] = numberMatch[0].split('/');
                 a = parseFloat(a);
                 b = parseFloat(b);
